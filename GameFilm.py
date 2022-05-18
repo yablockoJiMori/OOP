@@ -17,3 +17,4 @@ class GameFilm(Film):
 
     def write_game_film_to(self, stream):
         self.write_to(stream)
+        stream.write(f"\tКоличество гласных: {self.num_vowels()}\n")
