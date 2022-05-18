@@ -1,6 +1,7 @@
 class Film:
     def __init__(self):
         self.title = ""
+        self.country = ""
 
     def read_from(self, stream):
         pass
