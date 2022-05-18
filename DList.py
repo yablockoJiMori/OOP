@@ -44,6 +44,7 @@ class DList:
 
             for item in self:
                 item.write_to(file_out)
+                file_out.write(f"\tКоличество гласных: {item.num_vowels()}\n")
 
     def __iter__(self):
         self.__cur_item = self.head
