@@ -32,7 +32,7 @@ class Cartoon(Film):
     def write_to(self, stream):
         stream.write(f"Мультфильм.\n"
                      f"\tНазвание: {self.title}\n"
-                     f"\tСпособ создания ")
+                     f"\tСпособ создания: ")
         k = self.way_to_create
 
         match k:
