@@ -9,14 +9,12 @@ if __name__ == "__main__":
               "Waited: command in_file out_file")
         sys.exit(1)
 
-
     print("Старт")
 
     container = DList()
     container.read_from(sys.argv[1])
 
     print("Файл прочитан.")
-
 
     container.write_to(sys.argv[2])
     container.clear()

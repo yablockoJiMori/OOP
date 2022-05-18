@@ -1,4 +1,5 @@
 from enum import Enum
+from Film import Film
 
 
 class WayToCreate(Enum):
@@ -7,7 +8,7 @@ class WayToCreate(Enum):
     plasticine = 3
 
 
-class Cartoon():
+class Cartoon(Film):
     def __init__(self):
         super().__init__()
         self.way_to_create = None

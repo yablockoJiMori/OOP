@@ -1,5 +1,3 @@
-from Cartoon import Cartoon
-from GameFilm import GameFilm
 class Film:
     def __init__(self):
         self.title = ""
@@ -12,13 +10,16 @@ class Film:
 
     @staticmethod
     def create_from(stream, line):
+
         k = int(line)
 
         match k:
             case 1:
+                from GameFilm import GameFilm
                 film = GameFilm()
 
             case 2:
+                from Cartoon import Cartoon
                 film = Cartoon()
 
             case _:

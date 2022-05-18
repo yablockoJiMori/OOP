@@ -1,5 +1,7 @@
+from Film import Film
 
-class GameFilm():
+
+class GameFilm(Film):
     def __init__(self):
         super().__init__()
         self.director = ""

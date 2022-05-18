@@ -1,5 +1,6 @@
 from Film import Film
 
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -25,7 +26,6 @@ class DList:
         node.next = self.head
         self.tail = node
         self.size += 1
-
 
     def clear(self) -> None:
         self.head = None
