@@ -20,6 +20,7 @@ if __name__ == "__main__":
 
     container.sort()
     container.write_to(sys.argv[2])
+    container.write_game_film_to(sys.argv[2])
     container.clear()
 
     print("Контейнер отчищен")
