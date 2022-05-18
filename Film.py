@@ -8,6 +8,9 @@ class Film:
     def write_to(self, stream):
         pass
 
+    def write_game_film_to(self, stream):
+        pass
+
     @staticmethod
     def create_from(stream, line):
 
