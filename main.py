@@ -18,6 +18,7 @@ if __name__ == "__main__":
 
     print("Файл прочитан.")
 
+    container.sort()
     container.write_to(sys.argv[2])
     container.clear()
 

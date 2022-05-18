@@ -60,3 +60,12 @@ class DList:
 
         else:
             raise StopIteration
+
+    def sort(self):
+        for i in range(self.size):
+            curr_node = self.head
+            while curr_node.next != self.head:
+                next_node = curr_node.next
+                if curr_node.data.match(next_node.data):
+                    curr_node.data, next_node.data = next_node.data, curr_node.data
+                curr_node = next_node

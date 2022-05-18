@@ -36,3 +36,6 @@ class Film:
             if letter in vowels:
                 amount += 1
         return amount
+
+    def match(self, other):
+        return self.num_vowels() < other.num_vowels()
