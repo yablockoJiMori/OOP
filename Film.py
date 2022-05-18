@@ -25,6 +25,10 @@ class Film:
                 from Cartoon import Cartoon
                 film = Cartoon()
 
+            case 3:
+                from Documentary import Documentary
+                film = Documentary()
+
             case _:
                 stream.close()
                 raise Exception("Error type!")
