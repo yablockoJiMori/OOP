@@ -9,8 +9,10 @@ class Documentary(Film):
     def read_from(self, stream):
         self.title = stream.readline().rstrip("\n")
         self.year_of_issue = int(stream.readline())
+        self.country = stream.readline().rstrip("\n")
 
     def write_to(self, stream):
         stream.write(f"Документальный фильм.\n"
                      f"\tНазвание: {self.title}\n"
                      f"\tГод создания: {self.year_of_issue}\n")
+        stream.write(f"\tСтрана: {self.country}\n")
