@@ -45,9 +45,6 @@ class DList:
             for item in self:
                 item.write_to(file_out)
 
-    def __len__(self) -> int:
-        return self.size
-
     def __iter__(self):
         self.__cur_item = self.head
         self.__flag = 0

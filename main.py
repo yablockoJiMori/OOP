@@ -1,4 +1,3 @@
-
 import sys
 
 from DList import DList
@@ -10,6 +9,9 @@ if __name__ == "__main__":
         sys.exit(1)
 
     print("Старт")
+
+    with open(sys.argv[2], "w", encoding="utf-8") as file_out:
+        print("Файл output.txt отчищен.")
 
     container = DList()
     container.read_from(sys.argv[1])
