@@ -1,3 +1,4 @@
+import sys
 from enum import Enum
 from Film import Film
 
@@ -14,9 +15,20 @@ class Cartoon(Film):
         self.way_to_create = None
 
     def read_from(self, stream):
-        self.title = stream.readline().rstrip("\n")
-
-        k = int(stream.readline())
+        try:
+            self.title = stream.readline().rstrip("\n")
+        except Exception as e:
+            stream.close()
+            print("Ошибка чтения мультфильма!")
+            print(e)
+            sys.exit(1)
+        try:
+            k = int(stream.readline())
+        except Exception as e:
+            print(f"Ошибка преобразования числа.")
+            print(e)
+            stream.close()
+            sys.exit(1)
 
         match k:
             case WayToCreate.drawn.value:
@@ -27,14 +39,33 @@ class Cartoon(Film):
                 self.way_to_create = WayToCreate.plasticine
             case _:
                 stream.close()
-                raise Exception("Error type!")
-        self.country = stream.readline().rstrip("\n")
+                print(f"Введен неверный тип объекта: {k}")
+                sys.exit(1)
+        try:
+            self.country = stream.readline().rstrip("\n")
+        except Exception as e:
+            stream.close()
+            print("Ошибка чтения мультфильма!")
+            print(e)
+            sys.exit(1)
 
     def write_to(self, stream):
-        stream.write(f"Мультфильм.\n"
-                     f"\tНазвание: {self.title}\n"
-                     f"\tСпособ создания: ")
-        k = self.way_to_create
+        try:
+            stream.write(f"Мультфильм.\n"
+                         f"\tНазвание: {self.title}\n"
+                         f"\tСпособ создания: ")
+        except Exception as e:
+            stream.close()
+            print("Ошибка записи мультфильма!")
+            print(e)
+            sys.exit(1)
+        try:
+            k = self.way_to_create
+        except Exception as e:
+            print(f"Ошибка преобразования числа.")
+            print(e)
+            stream.close()
+            sys.exit(1)
 
         match k:
             case WayToCreate.drawn:
@@ -44,5 +75,13 @@ class Cartoon(Film):
             case WayToCreate.plasticine:
                 stream.write(f"Пластилиновый\n")
             case _:
-                return 0
-        stream.write(f"\tСтрана: {self.country}\n")
+                stream.close()
+                print(f"Введен неверный тип объекта: {k}")
+                sys.exit(1)
+        try:
+            stream.write(f"\tСтрана: {self.country}\n")
+        except Exception as e:
+            stream.close()
+            print("Ошибка записи мультфильма!")
+            print(e)
+            sys.exit(1)

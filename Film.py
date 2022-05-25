@@ -1,3 +1,6 @@
+import sys
+
+
 class Film:
     def __init__(self):
         self.title = ""
@@ -14,9 +17,13 @@ class Film:
 
     @staticmethod
     def create_from(stream, line):
-
-        k = int(line)
-
+        try:
+            k = int(line)
+        except Exception as e:
+            print(f"Ошибка преобразования числа. ({line})")
+            print(e)
+            stream.close()
+            sys.exit(1)
         match k:
             case 1:
                 from GameFilm import GameFilm
@@ -32,7 +39,8 @@ class Film:
 
             case _:
                 stream.close()
-                raise Exception("Error type!")
+                print(f"Введен неверный тип объекта: {k}")
+                sys.exit(1)
 
         film.read_from(stream)
         return film

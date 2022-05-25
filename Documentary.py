@@ -1,3 +1,4 @@
+import sys
 from Film import Film
 
 
@@ -7,12 +8,24 @@ class Documentary(Film):
         self.year_of_issue = 0
 
     def read_from(self, stream):
-        self.title = stream.readline().rstrip("\n")
-        self.year_of_issue = int(stream.readline())
-        self.country = stream.readline().rstrip("\n")
+        try:
+            self.title = stream.readline().rstrip("\n")
+            self.year_of_issue = int(stream.readline())
+            self.country = stream.readline().rstrip("\n")
+        except Exception as e:
+            stream.close()
+            print("Ошибка чтения документального фильма!")
+            print(e)
+            sys.exit(1)
 
     def write_to(self, stream):
-        stream.write(f"Документальный фильм.\n"
-                     f"\tНазвание: {self.title}\n"
-                     f"\tГод создания: {self.year_of_issue}\n")
-        stream.write(f"\tСтрана: {self.country}\n")
+        try:
+            stream.write(f"Документальный фильм.\n"
+                         f"\tНазвание: {self.title}\n"
+                         f"\tГод создания: {self.year_of_issue}\n")
+            stream.write(f"\tСтрана: {self.country}\n")
+        except Exception as e:
+            stream.close()
+            print("Ошибка записи документального фильма!")
+            print(e)
+            sys.exit(1)

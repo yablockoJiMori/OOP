@@ -4,14 +4,18 @@ from DList import DList
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        print("incorrect command line! \n"
-              "Waited: command in_file out_file")
+        print("Ошибка. Ожидалось принять файлы ввода и вывода.")
         sys.exit(1)
 
     print("Старт")
 
-    with open(sys.argv[2], "w", encoding="utf-8") as file_out:
-        print("Файл output.txt отчищен.")
+    try:
+        with open(sys.argv[2], "w", encoding="utf-8") as file_out:
+            print("Файл output.txt отчищен.")
+    except Exception as e:
+        print(f"Ошибка открытия файла {sys.argv[2]}")
+        print(e)
+        sys.exit(1)
 
     container = DList()
     container.read_from(sys.argv[1])
