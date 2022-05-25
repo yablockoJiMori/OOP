@@ -1,5 +1,7 @@
 import sys
 from Film import Film
+import Cartoon
+import GameFilm
 
 
 class Documentary(Film):
@@ -29,3 +31,20 @@ class Documentary(Film):
             print("Ошибка записи документального фильма!")
             print(e)
             sys.exit(1)
+
+    def check_filmsM(self, film_2):
+        if type(film_2) == Documentary:
+            print("Фильмы из одной категории.")
+            print("Категория - первый фильм: Документальный, второй фильм: Документальный")
+            print(f"Название - первый фильм: {self.title}, второй фильм: {film_2.title}")
+            print()
+        if type(film_2) == Cartoon.Cartoon:
+            print("Фильмы из разных категорий.")
+            print("Категория - первый фильм: Документальный, второй фильм: Мультфильм")
+            print(f"Название - первый фильм: {self.title}, второй фильм: {film_2.title}")
+            print()
+        if type(film_2) == GameFilm.GameFilm:
+            print("Фильмы из разных категорий.")
+            print("Категория - первый фильм: Документальный, второй фильм: Игровой")
+            print(f"Название - первый фильм: {self.title}, второй фильм: {film_2.title}")
+            print()

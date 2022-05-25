@@ -92,3 +92,11 @@ class DList:
                 if curr_node.data.match(next_node.data):
                     curr_node.data, next_node.data = next_node.data, curr_node.data
                 curr_node = next_node
+
+    def compare_films(self):
+        film_pack_1 = [item for item in self]
+        film_pack_2 = film_pack_1.copy()
+
+        for film_1 in film_pack_1:
+            for film_2 in film_pack_2:
+                Film.check_film(film_1, film_2)

@@ -15,6 +15,9 @@ class Film:
     def write_game_film_to(self, stream):
         pass
 
+    def check_filmsM(self, film_2):
+        pass
+
     @staticmethod
     def create_from(stream, line):
         try:
@@ -55,3 +58,14 @@ class Film:
 
     def match(self, other):
         return self.num_vowels() < other.num_vowels()
+
+    @staticmethod
+    def check_film(film_1, film_2):
+        film_1.check_filmsM(film_2)
+
+
+
+
+
+
+

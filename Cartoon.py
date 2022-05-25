@@ -1,6 +1,8 @@
 import sys
 from enum import Enum
 from Film import Film
+import Documentary
+import GameFilm
 
 
 class WayToCreate(Enum):
@@ -85,3 +87,20 @@ class Cartoon(Film):
             print("Ошибка записи мультфильма!")
             print(e)
             sys.exit(1)
+
+    def check_filmsM(self, film_2):
+        if type(film_2) == Documentary.Documentary:
+            print("Фильмы из разных категорий.")
+            print("Категория - первый фильм: Мультфильм, второй фильм: Документальный")
+            print(f"Название - первый фильм: {self.title}, второй фильм: {film_2.title}")
+            print()
+        if type(film_2) == Cartoon:
+            print("Фильмы из одной категории.")
+            print("Категория - первый фильм: Мультфильм, второй фильм: Мультфильм")
+            print(f"Название - первый фильм: {self.title}, второй фильм: {film_2.title}")
+            print()
+        if type(film_2) == GameFilm.GameFilm:
+            print("Фильмы из разных категорий.")
+            print("Категория - первый фильм: Мультфильм, второй фильм: Игровой")
+            print(f"Название - первый фильм: {self.title}, второй фильм: {film_2.title}")
+            print()
